@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Contexual-Gesture: Co-Speech Gesture Video Generation Through Context-aware Gesture Representation.">
+  <meta name="keywords" content="gesture generation, motion representation, video generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">CSTA-HMM: Spatio-Temporal Disentanglement for Co-Speech Gesture Generation</h1>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+           Co-speech video generation focuses on improving the authenticity of virtual characters by aligning their gestures and facial expressions with spoken audio. However, existing methods often suffer from speech-gesture misalignment and unnatural hand motions. To address the issues, we propose a novel audio-driven gesture generation framework. This framework integrates a hierarchical diffusion model with multimodal feature disentanglement and dynamic fusion strategies. The core of our approach is the Cross-modal Spatial-Temporal Attention mechanism (CSTA), which ensures high-fidelity synchronization between audio and human motion while capturing fine-grained dynamics of hand and facial gestures. By effectively disentangling different motion modalities, CSTA enhances the alignment between body part movements and the audio signal, leading to more natural and coherent video synthesis. Furthermore, to improve the physical plausibility and diversity of generated gestures, we introduce a Hand Memory Module (HMM). This module leverages a Vector Quantization-Variational Autoencoder (VQ-VAE) to learn a discrete gesture prior. By injecting these learned priors during the generation process, our method not only enhances temporal consistency but also preserves intricate details, mitigating common issues in prior work such as motion blur and detail loss. Experiments on the PATS and BEAT2 datasets demonstrate that CSTA surpasses existing methods in generating co-speech videos with more synchronized and natural hand motions, achieving state-of-the-art performance in both qualitative and quantitative evaluations.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+  
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" style="text-align: center;">Method</h2>
+     <center><div class="hero-body">
+        <img src="static/images/stage1.png"/>
+      <p>Overview of the first stage of our framework. Given an input speech signal, three specialized encoders extract rhythmic, semantic, and global motion offset features. These features are then fused with the target subject’s identity information and decoded to generate a synchronized landmark sequence for the face, hands, and body.</p>
+    </div> </center>
+        <center><div class="hero-body">
+        <img src="static/images/csta.png"/>
+      <p>The CSTA module. The module consists of three key components: spatio-temporal feature decomposition, hierarchical attention computation, and dynamic gated fusion. These components collaboratively process the extracted speech features to achieve precise motion synthesis.</p>
+    </div></center>
+    <div class="hero-body">
+        <img src="static/images/stage2.png"/>
+      <p>Overview of the second stage of our framework. The inputs include Gaussian noise, keypoint sequences, the target person's image, and the pretrained HMM module (upper left). These inputs are processed through a hierarchical diffusion model, where the HMM module injects memory features to enhance motion coherence. Finally, the VAE decoder generates the video sequence with anatomically consistent gestures and smooth temporal dynamics.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">  
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Results</h2>
+          <!-- <p><b><font face="verdana">the generated motion is in <font color="#f5a623">orange</font></font></b></p> -->
+          <div class="content">
+            <div class="columns is-centered">
+              <!-- Left Video -->
+              <div class="column is-one-fourth has-text-centered">
+                <video poster="" playsinline autoplay muted loop style="width: 100%; max-width: 300px;">
+                  <source src="static/results/output_100958_clip2_00000299.mp4" type="video/mp4">
+                </video>
+              </div>
+              
+              <!-- Middle Video -->
+              <div class="column is-one-fourth has-text-centered">
+                <video poster="" playsinline autoplay muted loop style="width: 100%; max-width: 300px;">
+                  <source src="static/results/seth99757_clip.mp4" type="video/mp4">
+                </video>
+              </div>
+              
+              <!-- Right Video -->
+              <div class="column is-one-fourth has-text-centered">
+                <video poster="" playsinline autoplay muted loop style="width: 100%; max-width: 300px;">
+                  <source src="static/results/oliver103845_clip.mp4" type="video/mp4">
+                </video>
+              </div>
+
+
+              <!-- Right Video -->
+              <div class="column is-one-fourth has-text-centered">
+                <video poster="" playsinline autoplay muted loop style="width: 100%; max-width: 300px;">
+                  <source src="static/results/jon9872_clip.mp4" type="video/mp4">
+                </video>
+              </div>
+
+
+
+            </div>
+            
+
+          </div>
+          <h2 class="content has-text-centered">
+            The video results generated by our model are presented.
+        </div>
+      </div>    
+    </div>
+  </div>
+</section>
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Comparison on PATS</h2>
+      <center><div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/contrast/join11127_9s.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/contrast/oliver101097_3s.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/contrast/join9401_3s1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video4">
+          <video poster="" id="video4" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/contrast/seth46962_6s.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div></center>
+      <h2 class="content has-text-centered">
+        Qualitative results compared with other methods. Our method achieves accurate gesture generation and high-quality overall visuals.
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Comparison on BEAT2</h2>
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/contrast/on_beat2_1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      <!-- </div> -->
+      <h2 class="content has-text-centered">
+        Emage presents unnatural temporal transitions of gestures and jittorings. Our work achieves more aligned gesture motions conditioned on speech audio. With contextural distillation, the motion patterns can be more natural as shown on the left.
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Visual landmarks sequence</h2>
+      
+      <center><div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/video_with_ky/cat_cropped_jon12131_14s.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/video_with_ky/cat_cropped_seth4654_14s.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/video_with_ky/cat_cropped_jon9401.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/video_with_ky/cat_cropped_oliver101097.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div></center>
+      <h2 class="content has-text-centered">
+       We visualize the sequence of landmark generated by speech and the co-speech video it drives to generate.
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">The results of the ablation experiments</h2>
+      
+      <center><div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/ablation/output7s1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/ablation/seth_ablation_output5s.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/ablation/output3s1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div></center>
+      <h2 class="content has-text-centered">
+        The results of the ablation experiments, conducted using the full model, demonstrate improved video diversity and synchronization.
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+
+
+<footer class="footer" style="padding-top: 6px; padding-bottom: 6px;">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Our website template comes from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and is modified based on it. Thanks to the authors contribution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
