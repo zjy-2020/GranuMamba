@@ -62,7 +62,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">CSTA-HMM: Spatio-Temporal Disentanglement for Co-Speech Gesture Generation</h1>
+          <h1 class="title is-1 publication-title">GranuMamba: A Multi-Granularity State Space Model for Co-Speech Gesture Generation</h1>
 
           
         </div>
@@ -79,7 +79,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-           Co-speech video generation focuses on improving the authenticity of virtual characters by aligning their gestures and facial expressions with spoken audio. However, existing methods often suffer from speech-gesture misalignment and unnatural hand motions. To address the issues, we propose a novel audio-driven gesture generation framework. This framework integrates a hierarchical diffusion model with multimodal feature disentanglement and dynamic fusion strategies. The core of our approach is the Cross-modal Spatial-Temporal Attention mechanism (CSTA), which ensures high-fidelity synchronization between audio and human motion while capturing fine-grained dynamics of hand and facial gestures. By effectively disentangling different motion modalities, CSTA enhances the alignment between body part movements and the audio signal, leading to more natural and coherent video synthesis. Furthermore, to improve the physical plausibility and diversity of generated gestures, we introduce a Hand Memory Module (HMM). This module leverages a Vector Quantization-Variational Autoencoder (VQ-VAE) to learn a discrete gesture prior. By injecting these learned priors during the generation process, our method not only enhances temporal consistency but also preserves intricate details, mitigating common issues in prior work such as motion blur and detail loss. Experiments on the PATS and BEAT2 datasets demonstrate that CSTA surpasses existing methods in generating co-speech videos with more synchronized and natural hand motions, achieving state-of-the-art performance in both qualitative and quantitative evaluations.
+           Generating high-fidelity co-speech gestures requires modeling complex temporal dynamics, ranging from rapid, fine-grained hand movements to slow, global body shifts. Existing approaches typically operate at a single temporal scale, limiting their ability to capture both local precision and global coherence. We propose GranuMamba, a novel framework that explicitly models multi-scale gesture dynamics. It employs two parallel Mamba-based streams to separately encode short-term fine-grained motions and long-term global dynamics. These representations are adaptively fused via a dynamic gating mechanism, enabling context-dependent integration of temporal features. To further encourage specialization, we introduce granularity-aware training objectives, optimizing each stream with a tailored loss for either local detail or global consistency. Experiments on the BEAT2 dataset demonstrate that GranuMamba outperforms state-of-the-art baselines in both objective metrics, including Fréchet Gesture Distance (FGD), and subjective evaluations, generating gestures that are more expressive, coherent, and human-like.
           </p>
         </div>
       </div>
