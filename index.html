@@ -93,15 +93,15 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3" style="text-align: center;">Method</h2>
      <center><div class="hero-body">
-        <img src="static/images/stage1.png"/>
+        <img src="static/image/stage1.png"/>
       <p>Overview of the first stage of our framework. Given an input speech signal, three specialized encoders extract rhythmic, semantic, and global motion offset features. These features are then fused with the target subject’s identity information and decoded to generate a synchronized landmark sequence for the face, hands, and body.</p>
     </div> </center>
         <center><div class="hero-body">
-        <img src="static/images/csta.png"/>
+        <img src="static/image/csta.png"/>
       <p>The CSTA module. The module consists of three key components: spatio-temporal feature decomposition, hierarchical attention computation, and dynamic gated fusion. These components collaboratively process the extracted speech features to achieve precise motion synthesis.</p>
     </div></center>
     <div class="hero-body">
-        <img src="static/images/stage2.png"/>
+        <img src="static/image/stage2.png"/>
       <p>Overview of the second stage of our framework. The inputs include Gaussian noise, keypoint sequences, the target person's image, and the pretrained HMM module (upper left). These inputs are processed through a hierarchical diffusion model, where the HMM module injects memory features to enhance motion coherence. Finally, the VAE decoder generates the video sequence with anatomically consistent gestures and smooth temporal dynamics.</p>
     </div>
   </div>
