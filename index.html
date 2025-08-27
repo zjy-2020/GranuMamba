@@ -224,53 +224,45 @@
 <!-- Video carousel -->
 <section class="hero is-small">
   <div class="hero-body">
-    <div class="container is-max-desktop">
-
-      <!-- 标题 -->
+    <!-- 修改点 1: 将 is-max-desktop 改为 is-max-widescreen，让整体更宽 -->
+    <div class="container is-max-widescreen">
       <h2 class="title is-4">Comparison on PATS</h2>
-
-      <!-- 轮播 -->
-      <center>
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item item-video1">
-            <video poster="" id="video1" autoplay controls muted loop>
-              <source src="static/contrast/1_1_4videos_concat.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-video2">
-            <video poster="" id="video2" autoplay controls muted loop>
-              <source src="static/contrast/2_2_4videos_concat.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-video3">
-            <video poster="" id="video3" autoplay controls muted loop>
-              <source src="static/contrast/3_3_4videos_concat.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-video4">
-            <video poster="" id="video4" autoplay controls muted loop>
-              <source src="static/contrast/4_4_4videos_concat.mp4" type="video/mp4">
-            </video>
-          </div>
+      
+      <!-- 
+        修改点 2: 
+        - 移除了过时的 <center> 标签。
+        - 为轮播组件 div 添加了 style 属性，明确设置了高度 (height: 600px)，并用 margin: auto 实现了居中。
+        - 您可以自由修改 600px 这个值来调整高度。
+      -->
+      <div id="results-carousel" class="carousel results-carousel" style="height: 600px; margin: auto;">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <source src="static/contrast/1_1_4videos_concat.mp4" type="video/mp4">
+          </video>
         </div>
-      </center>
-
-      <!-- 说明文字 -->
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <source src="static/contrast/2_2_4videos_concat.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <source src="static/contrast/3_3_4videos_concat.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video4">
+          <video poster="" id="video4" autoplay controls muted loop height="100%">
+            <source src="static/contrast/4_4_4videos_concat.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
       <h2 class="content has-text-centered">
         Qualitative results compared with other methods. Our method achieves accurate gesture generation and high-quality overall visuals.
       </h2>
     </div>
   </div>
 </section>
-
-<!-- 自定义样式 -->
-<style>
-  /* 放大轮播中的视频 */
-  #results-carousel video {
-    height: 450px;   /* 设置视频高度 */
-    width: auto;     /* 保持宽高比例 */
-  }
-</style>
 
 <!-- End video carousel -->
 
