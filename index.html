@@ -219,46 +219,59 @@
     </div>
   </div>
 </section>
+
+  
 <!-- Video carousel -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
+
+      <!-- 标题 -->
       <h2 class="title is-4">Comparison on PATS</h2>
-      <center><div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/contrast/1_1_4videos_concat.mp4"
-            type="video/mp4">
-          </video>
+
+      <!-- 轮播 -->
+      <center>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-video1">
+            <video poster="" id="video1" autoplay controls muted loop>
+              <source src="static/contrast/1_1_4videos_concat.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-video2">
+            <video poster="" id="video2" autoplay controls muted loop>
+              <source src="static/contrast/2_2_4videos_concat.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-video3">
+            <video poster="" id="video3" autoplay controls muted loop>
+              <source src="static/contrast/3_3_4videos_concat.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-video4">
+            <video poster="" id="video4" autoplay controls muted loop>
+              <source src="static/contrast/4_4_4videos_concat.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/contrast/2_2_4videos_concat.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/contrast/3_3_4videos_concat.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video4">
-          <video poster="" id="video4" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/contrast/4_4_4videos_concat.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div></center>
+      </center>
+
+      <!-- 说明文字 -->
       <h2 class="content has-text-centered">
         Qualitative results compared with other methods. Our method achieves accurate gesture generation and high-quality overall visuals.
+      </h2>
     </div>
   </div>
 </section>
+
+<!-- 自定义样式 -->
+<style>
+  /* 放大轮播中的视频 */
+  #results-carousel video {
+    height: 450px;   /* 设置视频高度 */
+    width: auto;     /* 保持宽高比例 */
+  }
+</style>
+
 <!-- End video carousel -->
 
 <!-- Video carousel -->
